@@ -1,0 +1,4 @@
+O que é Node.js?
+
+É um ambiente que permite a execução de código JavaScript fora do navegador
+Antes dele, só conseguimos executar código JavaSCript dentro de um navegador
