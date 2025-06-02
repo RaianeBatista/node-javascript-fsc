@@ -106,6 +106,7 @@ npm run start
 O Nodemon fica monitorando/escutando um arquivo, e a cada alteração/mudança,
  ele Reinicia o arquivo com todas as alterações feitas. 
  Não precismos mais usar o comando node index.js, para executar o arquivo pelo terminal.
+ Resumo: Monitora alterações nos arquivos e reinicia o servidor
 
 Execução que não precisa usar script  index.js que stá no package.json
  npx nodemon index.js
@@ -145,3 +146,55 @@ versões das dependências dos módulos no projeto
 Nesse caso, faz- o clone do projeto do repositório e usa o comando:
 npm ci
 Que usa a exta versão dos módulos, listados no package-lock.json, e não queremos atualizar as dependências
+
+
+
+Tipos de Dependências e Scripts
+Tipos de Dependências
+
+Dependências de Produção
+São necessárias para a nossa aplicação rodar em produção, 
+ou seja, ser usada pelos usuários funcionalidades
+Exemplo: React e Express
+
+Dependências de Desenvolvimento
+São necessárias apenas durante o processo de Desenvolvimento
+Exemplo: ESlint, Prettier e Nodemon
+
+Dependências Globais
+São instaladas globalmente no nosso sistema e podem ser usadas em qualquer ptojeto
+Exemplo: Nodemon e TypeScript
+
+Removendo o Nodemon
+npm uninstall nodemon
+
+Instalando Nodemon cmo dependência de desenvolvimento. devDependencies
+npm install nodemon --save-dev
+npm install -D nodemon
+
+Conseguimos usar o nodemon: 
+npm run start:dev
+
+Quando colocamos o projeto em produção, conseguimos instalar apenas as dependências de Produção,
+isso torna o projeto bem mais leve e otimizado
+
+Subindo projeto para produção
+Deleta a pasta node-modules
+Usa-se a flag production
+npm install --production
+
+Removendo o nodemon:
+npm uninstall nodemon
+
+Instalando o nodemon globalmente, o mesmo não aparece no package.json
+Mas podemos usa-lo como se fosse um programa
+nodemon -v
+npm install -g nodemon 
+
+Para executar o programa
+Nesse caso, é recomendado que haja uma documentação esclarecendo que recisa instalar globalmente 
+a dependência do nodemon, pois ela não aparece no arquivo package.json
+nodemon index.js
+
+A instalação de dependências globalmente não é recomendada, pois, ela não aparece no package.json
+Recomenda-se instalar globalmente: CLI, react native, expo CLi
