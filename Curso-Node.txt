@@ -66,3 +66,17 @@ O Node.js vem com alguns módulos pré instalados
 Módulo FS: manipula arquivos (cria, edita, deleta)
 Módulo HTTP: cria um serviedor web
 Módulo PATCH: nos ajuda a lidar com diretórios e pastas
+
+ Apretechos do Node.js
+ __filename
+ __dirname
+ 
+console.log(__filename);
+console.log(__dirname);
+
+Deletar arquivo: 
+rm -rf message.txt - no wsl, linux
+del message.txt - no windows
+
+Deletar pasta:
+rmdir new-folder - no windows
