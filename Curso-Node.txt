@@ -2,3 +2,33 @@ O que é Node.js?
 
 É um ambiente que permite a execução de código JavaScript fora do navegador
 Antes dele, só conseguimos executar código JavaSCript dentro de um navegador
+Motores JavaSCript
+Todo navegador possui um motor Javascript (Javascript Engine)
+Esse motor converte o código Javascript em código de máquina e o executa (compilação)
+
+V8 Engine
+O motor mais popular atualmente é o V8, que é usado pelo Google Chrome
+Ele também é usado pelo Node.js
+
+Diferenças entre as Engines
+Todas as engines mais populares executam o código da mesma forma, pois elas seguem o ECMAScript
+* O ECMAScript é como se fosse um contrato que todas elas seguem 
+SpiderMonkey (Firefox), JavaScriptCore (Safari), V8 (Crhome & Node.js)
+Entretanto, cada uma possui particularidades que podem afetar o desempenho e uso de memória
+
+A V8, por exemplo, possui Jus-in-Time compilation, o que torna a engine mais rápida de todas
+
+Particularidas de cada ambiente
+Embora usem a mesma Javascript Engine, o Chrome e o Node.js adicionam "apetrechos" diferentes à elas
+Goocle Crhome:
+Possibilidade de manipular o DOM (Document Object Model) por meio do object Document
+Possibilidade de acessar informações do navehador com o object window
+
+Node.js
+Possibilidade de criar servidores HTTP(APIs)
+Possibilidade de manipular arquivos do sistema operacional (criar, editar, deletar)
+
+Em resumo:
+O Node.js é um ambiente que permite executarmos código Javascript em um computador
+
+
