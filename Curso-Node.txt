@@ -30,5 +30,39 @@ Possibilidade de manipular arquivos do sistema operacional (criar, editar, delet
 
 Em resumo:
 O Node.js é um ambiente que permite executarmos código Javascript em um computador
+Ele usa a mesma Javascript Engine que o Chrome (V8 Engine)
+Ele, assim como o Chrome, adiciona novas funcionalidades à JavaSCript EnginePodemos usá-lo para criar APIs (servidores web)
 
+Como o Node.js funciona?
+Possui apenas um núcleo para realizar operações (single threaded)
+Suporta várias operações simultâneas (non-blocking). Ele é multi tarefas
 
+Em resumo:
+O Node.js consegue executar várias operações ao mesmo tempo usando o seu único núcleo
+Em linguagens como Java e C#, um núcleo é criado para cada requisição
+
+Vantagens e Desvantagens
+* Vantagens
+Baixo uso de memória, pois contém apenas um núcleo
+Alta performance (V8 Engine)
+Escalabilidade, pois consegue lidar com várias requisições ao memos tempoGrande ecossistema,
+ comunidade e presença n o mercado
+
+Desvantagens
+Não é ideal para operações que exigem alto uso de computador
+Operações matemáticas, processamento de imagem, criptografia, machine learnig
+
+Instalação & Setup
+
+Módulos no Node.js
+
+Introdução ao Módulo.js
+Módulos são blocos de código que podemos reutilizar em diferentes partes da nossa aplicação
+Podemos exportá-los, importa-los para que outras pessoas possam utiliza-los
+
+Modulos Nativos
+O Node.js vem com alguns módulos pré instalados
+
+Módulo FS: manipula arquivos (cria, edita, deleta)
+Módulo HTTP: cria um serviedor web
+Módulo PATCH: nos ajuda a lidar com diretórios e pastas
