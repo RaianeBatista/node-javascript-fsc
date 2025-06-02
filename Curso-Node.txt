@@ -187,14 +187,47 @@ Removendo o nodemon:
 npm uninstall nodemon
 
 Instalando o nodemon globalmente, o mesmo não aparece no package.json
-Mas podemos usa-lo como se fosse um programa
+Mas podemos usa-lo como se fosse um programa, pelo terminal
 nodemon -v
-npm install -g nodemon 
+npm install -g nodemon
+nodemon index.js 
 
 Para executar o programa
-Nesse caso, é recomendado que haja uma documentação esclarecendo que recisa instalar globalmente 
+Nesse caso, é recomendado que haja uma documentação esclarecendo que precisa instalar globalmente 
 a dependência do nodemon, pois ela não aparece no arquivo package.json
 nodemon index.js
 
 A instalação de dependências globalmente não é recomendada, pois, ela não aparece no package.json
-Recomenda-se instalar globalmente: CLI, react native, expo CLi
+Recomenda-se instalar globalmente: CLI, react native, expo CLi, TypeScript
+
+ES Modules
+ES Modules é uma forma mais moderna de importar e exportar módulos, que foi introduzida no ES6
+Oferece uma sintaxe mais clara e mais simples
+
+Primeiros passos
+Para usá-la, temos que sinalizar para o Node por meio da propriedade type no package.json
+Outra forma de usá-lo é usarmos a extensão .mjs nos nossos arquivos 
+
+Dentro da pasta 05_es_modules:
+npm init -y => para responder automaticamente, a criação do package.json
+
+IMPORTANTE!
+A exportação => export default, significa que, 
+Se o arquivo que estiver importando, no caso o index.js, não fizer um Destructuring
+Não abrir um objetos e importar o que está sendo exportado em outro arquivo dentro desse objeto
+Nesse caso, o que será importado é apenas a variável default
+
+A exportação default é indicada somente quando houver apenas um objeto, que você quer exportar
+
+Usando a extenção mjs no arquivo, quando usamos assim, não precisamos usar o "type": "module"
+no arquivo package.json:
+index.mjs
+product.mjs
+
+A ferramenta Bable, converte as exportações ESModule, 
+para Common.js(em tempo de produção), para evitar problemas de imcompatibilidade entre 
+navegadores
+Para usar o ES Module, precisa ter a versão 13 o maior do Node.js
+
+Biblioteca do NPM que não tem suporte ao es module: lodash
+npm install lodash
