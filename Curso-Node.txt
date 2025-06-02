@@ -78,5 +78,70 @@ Deletar arquivo:
 rm -rf message.txt - no wsl, linux
 del message.txt - no windows
 
-Deletar pasta:
+Deletar/Remover pasta:
 rmdir new-folder - no windows
+
+Módulos do NPM
+NPM (Node Paackage Manager)
+O NPM é um repositório global que contém módulos feitos pela comunidade
+Esses módulos, quando instalados, são armazenados no arquivo package.json
+Todos os módulos instalados são especificados no arquivo package.json
+* Para criá-lo, usamos o comando npm init
+* Ele é como se fosse o contrato do nosso projeto Node.js
+
+Também nos referimos aos módulos como depêndencias e bibliotecas
+
+Instalando o NPM:
+npm init
+
+Instalando o Nodemon:
+npm install nodemon
+
+Instalando o Nodemon: npm install nodemonVerificando a versão:
+nodemon -v
+
+Executando o Script:
+npm run start
+
+O Nodemon fica monitorando/escutando um arquivo, e a cada alteração/mudança,
+ ele Reinicia o arquivo com todas as alterações feitas. 
+ Não precismos mais usar o comando node index.js, para executar o arquivo pelo terminal.
+
+Execução que não precisa usar script  index.js que stá no package.json
+ npx nodemon index.js
+
+ Instalando a depência que gera ID's aleatórios:
+ npm install uuid
+
+Removendo a pasta node_modules
+rmdir node_modules
+
+Importante: quando removemos a pasta node-modules, 
+é como se não tivessemos nehum módulo do NPM instalado no nosso projeto.
+Para resolver isso, basta digitar: npm install, 
+que ele vai instalar TODAS dependências listas no package.json.
+As dependências irão baixar no seu projeto todas atualizadas
+Esse acento circunflexo: atualiza as versões das dependências:
+"nodemon": "^3.1.10",
+"uuid": "^11.1.0"
+Isso acontece quando clonamos um repositório no Github
+
+O package-lock.json, guarda a exata versão que está instalada no package.json inicial do projeto (node_modules)
+de todas as depêndencias
+"nodemon": "^3", => nesse caso ele vai usar qualquer versão 3 do nodemon
+
+O comando npm ci, é similar ao npm install, porém ele instala, as exatas versões
+das dependências que estão listadas/basedas no package-lock.json
+O comando npm ci, não instala as dependências atualiuzadas
+O npm ci, precisa do package-lock.jsom para conseguir executar os comandos e instalar as 
+dependências, caso contrário, dá npm ERR!
+
+Importante!
+Usa-se:
+npm install - para instalar novas dependencias e/ou atualizá-las
+
+Quando clonamos um repositório e nele tem o package-lock.json eque toda equipe de devs, usem a mesmas
+versões das dependências dos módulos no projeto
+Nesse caso, faz- o clone do projeto do repositório e usa o comando:
+npm ci
+Que usa a exta versão dos módulos, listados no package-lock.json, e não queremos atualizar as dependências
