@@ -215,7 +215,7 @@ IMPORTANTE!
 A exportação => export default, significa que, 
 Se o arquivo que estiver importando, no caso o index.js, não fizer um Destructuring
 Não abrir um objetos e importar o que está sendo exportado em outro arquivo dentro desse objeto
-Nesse caso, o que será importado é apenas a variável default
+Nesse caso, o que será importado é apenas a função default
 
 A exportação default é indicada somente quando houver apenas um objeto, que você quer exportar
 
@@ -231,3 +231,145 @@ Para usar o ES Module, precisa ter a versão 13 o maior do Node.js
 
 Biblioteca do NPM que não tem suporte ao es module: lodash
 npm install lodash
+
+Publicando Módulos no NPM
+
+Quando publicamos um  módulo, qualquer pessoa vai poder instalá-lo, 
+e também podemos usá-lo em qualquer projeto
+
+Por exemplo aplocações em React.js, qu seguem umja filosofia de design, e 
+os componentes são os mesmo entre as aplicações;
+Então cria-se um módulo no NPM com todos esses componentes , e as aplicações que fossem
+usar este módulo, podem instala-lo e usar os componentes presentes neste módulo
+
+Para criar o packege.json
+npm init -y
+import {sum} from "@raianebatista/fullstack";
+
+Publicando um módulo
+Fazer o login no terminal na nossa conta no site NPM:
+npm login
+npm publish (para publicar pacote privato. É PAGO!)
+
+Publicando um pacote público no NPM:
+npm publish --access public
+
+Assim temos as versões da nossa aplicação remotamente, para qualquer
+pessoa usar nosso módulo
+
+Adicionando arquivos no modulo, para isso deve, alterar a versão no package.json
+"version": "1.0.0"; para => "version": "1.0.1";
+
+E publicá-lo novamente:
+
+npm publish --access public
+
+Instalando módulo/biblioteca publicado
+Em uma nova pasta:FGHHDBdbDBÇSXVSXV
+npm init -y
+
+npm i @raianebatista/fullstack
+
+O que é im código assíncrono?
+É um código que leva um tempo para ser executado, podendo variar.
+Exemplo: Obter informações de um Banco de dados, pode levar um tempo
+(1, 2, 3, 4, 5 segundos) devido a várias fatores
+, por exempo, velocidade de internet
+Código normal, o Node.js executa linha a linha sequencialmente;
+
+Exemplo de código assíncrono:
+setTimeout() {}
+
+
+Node.js Assíncrono
+O código assíncrono leva um tempo para ser executado, porém ele não bloqueia
+a execução de outros trechos de código
+
+Call Stack, Callback Queue & Event Loop
+Exemplo 1/Código normal:
+
+const x = 1;
+const y = 6;
+const soma = x + y;
+
+console.log(`A soma é ${y}`)
+
+Call Stack: chama a função main(), que fornece o __filename e o __dirname
+Ele executa o código => declara as variáveis sequencialmente, linha a linha
+Após a execução do último código, no caso, console.log, 
+todo o código será removido do CALL STACK, finaliza a execução da main()/do arquivo
+
+Exemplo 2/Código normal:
+const listarPaies = (paises) => {
+    paises.forEach((pais) => {
+        console.log(pais)
+    })
+};
+const meusPaises = ["Brasil", "Japão"]
+
+listarPaises(meusPaises);
+
+No Call Stack:
+5º. console.log('Brasil') -> após ser executado, será removido do CallStack
+4º. ('Brasil') => {} ->  após ser executado, será removido do CallStack, próxima iteração
+será o Japão
+3º. forEach(...) => após todas as iterações este código também será removido
+2º. listarpaises([...]) => será removido pois não há mais elementos a serem executados
+1º. main() é a primeira a ser executada => após a execução, também será removido do Call Stack
+
+
+Exemplo de código assíncrono
+console.log("Iniciando...");
+
+setTimeout(() => {
+    console.log("Temporizador de 3 segundos!")
+}, 3000);
+
+setTimeout(() => {
+    console.log("Temporizador de 0 segundos!")
+}, 0)
+console.log("Finalizando...")
+
+Na Call Stack
+3º setTimeout() - código assíncrono, Node APIS
+2º log ("Iniciando")
+1º rodou a função main()
+
+
+IMPORTANTE! Os códigos assíncronos são enviados para o Node APIs, para serem executados
+em segundo plano, para assim poder liberar o Call Stack, por esse motivo, não há o bloqueio
+na execução dois outros trechos de código.
+Os códigos assíncronos são retirados do Call Stack e enviados para o Node APIs, para serem 
+executados em segundo plano
+Deixando o Call Stack livre para executar os outros códigos normais ou assincronos
+
+No Node APIs
+Todos os código assincronos são enviado para o Node APIs e libera o Call Stack
+setTimeout(...,3000)
+setTimeout(...,0)
+
+
+Callback Queue - é um fila que vai "pegando" os resultados das operações que 
+estão  no Node APIs
+As funções CallBack são armazenadas no CallBack Queue
+
+Exemplo: função CallBack, é um código assincrono pois leva um tempo para ser executado
+Após a execução do código assincrono, a função callback é executada/chamada
+
+IMPORTANTE!!
+Após todas as execuções dos códigos não assincronos rodarem,
+as funções e códigos que estão aguardando no CallBack Queue, são enviados para 
+O CallStack, para finalmente serem executadas.
+
+A função  do Event Loop é :
+Monitorar a callback queue e enviar callbacks para o call stack quando ele estiver vazio.
+O Event Loop é quem monitora as funções que estão no CallBack Queue e envia para 
+o CallStack executar e remover deste.
+
+ Por que um setTimeout com 0 segundos pode não ser executado imediatamente?
+ Porque ele é tratado como código assincrono e deve esperar o call stack vazio
+
+
+
+
+
