@@ -1,0 +1,15 @@
+{
+  "name": "@raianebatista/fullstack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fullstack"
+  ],
+  "author": "Raiane Batista",
+  "license": "ISC",
+  "description": "Módulo feito e publicado no curso FullStack Club! =)"
+}
