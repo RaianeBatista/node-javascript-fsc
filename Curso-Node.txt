@@ -371,5 +371,18 @@ o CallStack executar e remover deste.
 
 
 
+Sobre Promise All Settled
 
+Cada promise tem um status
+[
+  {
+    status: 'fulfilled', => A promise foi concluida
+    value: { id: 1, name: 'Mackbook', price: 900 }
+  },
+  { status: 'rejected', reason: 'Ocorreu um erro.' }, => A promise falhou, foi rejeitada
+  {
+    status: 'fulfilled',
+    value: { id: 1, name: 'Raiane Batista', age: 19 }
+  }
+]
 
